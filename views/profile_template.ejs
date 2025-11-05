@@ -1,0 +1,155 @@
+<%- include('partials/prologue.ejs', {title: `${profile.name} MBTI | Boo
+Personality Database`, description: `What is ${profile.name}'s MBTI personality
+type?`}) %>
+
+<div class="row sqs-row">
+  <%- include('partials/categories.ejs') %>
+  <div class="col sqs-col-10 sqs-col-page">
+    <div
+      class="sqs-block html-block sqs-block-html"
+      data-block-type="2"
+      id="block-2e6206ba777e9c6841a8"
+    >
+      <div class="sqs-block-content">
+        <h2 class="name">
+          <%= profile.name %>
+          <span style="color: #4edcd8; font-weight: bold">MBTI</span>
+        </h2>
+      </div>
+    </div>
+    <div class="row sqs-row">
+      <div class="col sqs-col-photo">
+        <div
+          class="sqs-block image-block sqs-block-image"
+          data-aspect-ratio="136.28691983122363"
+          data-block-type="5"
+          id="block-1f47fbbe7cae8fdeba8c"
+        >
+          <div class="sqs-block-content">
+            <div class="image-block-outer-wrapper">
+              <noscript>
+                <img
+                  class="picture"
+                  src="<%= profile.image %>"
+                  alt="<%= profile.image %>"
+                />
+              </noscript>
+              <img
+                class="thumb-image picture"
+                data-src="<%= profile.image %>"
+                data-image="<%= profile.image %>"
+                alt="<%= profile.name %>"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col sqs-col-trait">
+        <div class="row sqs-row">
+          
+          <div class="col sqs-col-sub-trait">
+            <div class="trait">
+              <p class="center" style="height: 25%; line-height: 1">MBTI</p>
+              <p class="trait-font center" style="height: 40%">
+                <%= profile.mbti %>
+              </p>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    <div
+      class="sqs-block html-block sqs-block-html"
+      data-block-type="2"
+      id="block-8d8156722d8e328e16b8"
+    >
+      <div class="sqs-block-content">
+        <p class="" style="white-space: pre-wrap"><%= profile.description %></p>
+      </div>
+    </div>
+
+    
+    <section id="comments-root" class="comments-section">
+      <div class="comments-header">
+        <h3>Comments</h3>
+        <button id="open-comment-btn" class="add-comment-btn">
+          Vote / Comment
+        </button>
+      </div>
+      <div class="comments-controls">
+        <div class="filter-buttons">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="mbti">MBTI</button>
+          <button class="filter-btn" data-filter="enneagram">Enneagram</button>
+          <button class="filter-btn" data-filter="zodiac">Zodiac</button>
+        </div>
+
+        <div class="sort-buttons">
+          <button id="sort-best" class="sort-btn active">Best</button>
+          <button id="sort-recent" class="sort-btn">Recent</button>
+        </div>
+      </div>
+
+      <div class="comments-body">
+        
+        <div id="comment-draft" class="comment-draft" aria-hidden="true">
+          <div class="draft-inner">
+            <div class="draft-top">
+              <div class="commenter-info">
+                <img
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrPKSe_z6cgW-yTyEBOILtedGE1hyCFBHSKg&s"
+                  alt="avatar"
+                  class="avatar"
+                />
+                <div class="commenter-name">Dian Ling</div>
+              </div>
+              <button id="close-draft" class="close-draft">✕</button>
+            </div>
+            <input
+              id="comment-title"
+              class="comment-title"
+              placeholder="Title"
+            />
+            <div class="voting-row">
+              <div class="vote-tags">
+                <div class="vote-tag" data-system="mbti">
+                  <button class="tag-value" data-value="">MBTI</button>
+                  <div class="tag-dropdown hidden"></div>
+                </div>
+                <div class="vote-tag" data-system="enneagram">
+                  <button class="tag-value" data-value="">Enneagram</button>
+                  <div class="tag-dropdown hidden"></div>
+                </div>
+                <div class="vote-tag zodiac" data-system="zodiac">
+                  <button class="tag-value" data-value="">Zodiac</button>
+                  <div class="tag-dropdown hidden"></div>
+                </div>
+              </div>
+            </div>
+            <textarea
+              id="comment-body"
+              class="comment-body"
+              placeholder="Share your typology reasoning by commenting here"
+            ></textarea>
+            <div class="draft-actions">
+              <button id="submit-comment" class="submit-comment" disabled>
+                Submit Comment
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="comments-list" class="comments-list">
+          
+        </div>
+      </div>
+    </section>
+    
+  </div>
+</div>
+
+<%- include('partials/epilogue.ejs') %>
+
+
+<link rel="stylesheet" href="/static/comments.css" />
+<script src="/static/comments.js" defer></script>
